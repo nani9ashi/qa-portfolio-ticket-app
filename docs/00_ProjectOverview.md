@@ -1,4 +1,16 @@
-# Project Overview
+# プロジェクト概要 - チケット管理アプリ
+
+- 文書ID：OV-TICKET-001
+- 版：v0.1
+- 最終更新日：2025-12-31
+- 作成者：Shintaro
+- 対象：チケット管理アプリ
+- 関連：
+  - テストケース：`../testcases/testcases.csv`
+  - 実行記録：`../results/test_results_record.csv`
+  - 欠陥ログ：`../defects/defect_log.csv`
+
+---
 
 ## 目的
 チケット管理アプリを題材に、QAとしての成果物一式（テスト計画／テスト設計／テストケース／実行記録／欠陥管理）を作成し、GitHubで管理したポートフォリオです。
