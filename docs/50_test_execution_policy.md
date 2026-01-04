@@ -6,7 +6,7 @@
 - 作成者：Shintaro
 - 対象：チケット管理アプリ
 - 関連：
-  - テスト計画：`10_TestPlan.md`
+  - テスト計画：`10_test_plan.md`
   - テストケース：`../testcases/testcases.csv`
   - 実行記録：`../results/test_results_record.csv`
   - 欠陥ログ：`../defects/defect_log.csv`

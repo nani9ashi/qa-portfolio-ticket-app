@@ -6,7 +6,7 @@
 - 作成者：Shintaro
 - 対象：チケット管理アプリ
 - 関連：
-  - テスト条件：`20_TestConditions.md`
+  - テスト条件：`20_test_conditions.md`
   - テストケース：`../testcases/testcases.csv`
 
 ## 1. 要件一覧

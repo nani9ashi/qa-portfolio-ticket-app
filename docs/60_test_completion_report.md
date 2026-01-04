@@ -6,7 +6,7 @@
 - 作成者：Shintaro
 - 対象：チケット管理アプリ
 - 関連：
-  - テスト計画：`10_TestPlan.md`
+  - テスト計画：`10_test_plan.md`
   - テストケース：`../testcases/testcases.csv`
   - テスト結果：`../results/test_results_record.csv`
   - 欠陥ログ：`../defects/defect_log.csv`
@@ -18,7 +18,7 @@
 
 - 対象：チケット管理アプリ（Web）
 - 対象期間：YYYY-MM-DD 〜 YYYY-MM-DD（後で記入）
-- 実行環境：`docs/40_TestEnvironment.md` 参照
+- 実行環境：`docs/40_test_environment.md` 参照
 
 ## 2. 実施範囲
 - 実施した主要領域：

@@ -6,8 +6,8 @@
 - 作成者：Shintaro
 - 対象：チケット管理アプリ
 - 関連：
-  - テスト計画：`10_TestPlan.md`
-  - テスト条件：`20_TestConditions.md`
+  - テスト計画：`10_test_plan.md`
+  - テスト条件：`20_test_conditions.md`
   - テストケース：`../testcases/testcases.csv`
 
 ---

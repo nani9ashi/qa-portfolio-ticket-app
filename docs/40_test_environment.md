@@ -1,4 +1,4 @@
-# テスト環境 - チケット管理アプリ
+# テスト環境定義 - チケット管理アプリ
 
 - 文書ID：TE-TICKET-001
 - 版：v0.1
@@ -6,7 +6,7 @@
 - 作成者：Shintaro
 - 対象：チケット管理アプリ
 - 関連：
-  - テスト計画：`10_TestPlan.md`
+  - テスト計画：`10_test_plan.md`
   - 実行記録：`../results/test_results_record.csv`
 
 ---

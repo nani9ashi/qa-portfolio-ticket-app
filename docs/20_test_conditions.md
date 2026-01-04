@@ -6,9 +6,9 @@
 - 作成者：Shintaro
 - 対象：チケット管理アプリ
 - 関連：
-  - テスト計画：`10_TestPlan.md`
+  - テスト計画：`10_test_plan.md`
   - テストケース：`../testcases/testcases.csv`
-  - トレーサビリティ：`70_Requirements_Test_Traceability.md`
+  - トレーサビリティ：`70_requirements_test_traceability.md`
   
 ---
 

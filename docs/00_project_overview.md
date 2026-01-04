@@ -46,8 +46,8 @@
 ---
 
 ## 成果物（入口）
-- テスト計画：`docs/10_TestPlan.md`
-- テスト設計：`docs/30_TestDesign.md`
+- テスト計画：`docs/10_test_plan.md`
+- テスト設計：`docs/30_test_design.md`
 - テストケース（設計のみ）：`testcases/testcases.csv`
 - テスト結果記録（実行ログ）：`results/test_results_record.csv`
 - 欠陥ログ（正本）：`defects/defect_log.csv`

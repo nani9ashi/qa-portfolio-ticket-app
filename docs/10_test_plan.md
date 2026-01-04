@@ -10,8 +10,8 @@
   - テストケース：`../testcases/testcases.csv`
   - テスト結果：`../results/test_results_record.csv`
   - 欠陥ログ：`../defects/defect_log.csv`
-  - テスト条件：`20_TestConditions.md`
-  - テスト設計：`30_TestDesign.md`
+  - テスト条件：`20_test_conditions.md`
+  - テスト設計：`30_test_design.md`
 
 ---
 
@@ -169,9 +169,11 @@
 - テスト計画書（本書）
 - テスト条件
 - テスト設計
+- テスト環境定義
+- テスト実行方針
 - テストケース
-- テスト結果記録
-- 欠陥レポート
+- テスト結果
+- 欠陥ログ
 - テスト完了レポート
 - 要件とテストの対応表
 
