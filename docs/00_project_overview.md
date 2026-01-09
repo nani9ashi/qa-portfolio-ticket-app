@@ -1,70 +1,135 @@
 # プロジェクト概要 - チケット管理アプリ
 
 - 文書ID：OV-TICKET-001
-- 版：v0.1
-- 最終更新日：2025-12-31
+- 版：v0.2
+- ステータス：Draft
+- 最終更新日：2026-01-06
 - 作成者：Shintaro
-- 対象：チケット管理アプリ
+- 対象：チケット管理アプリ（Web, Django + SQLite）
 - 関連：
-  - テストケース：`../testcases/testcases.csv`
-  - 実行記録：`../results/test_results_record.csv`
-  - 欠陥ログ：`../defects/defect_log.csv`
+  - 要件：[`../requirements/requirements.csv`](../requirements/requirements.csv)
+  - テストケース：[`../testcases/testcases.csv`](../testcases/testcases.csv)
+  - テスト結果：[`../results/test_results.csv`](../results/test_results.csv)
+  - 欠陥ログ：[`../defects/defect_log.csv`](../defects/defect_log.csv)
 
 ---
 
-## 目的
-チケット管理アプリを題材に、QAとしての成果物一式（テスト計画／テスト設計／テストケース／実行記録／欠陥管理）を作成し、GitHubで管理したポートフォリオです。
+## 1. 目的
 
-本リポジトリは **「テスト成果物が読みやすいこと」** と **「運用しながら育てられること」** を重視しています。
+チケット管理アプリ（BtoB想定）を題材に、QA成果物（テスト計画／テスト条件／テスト設計／テストケース／テスト結果／欠陥ログ／完了レポート）を作成し、GitHubで管理したポートフォリオとして提示する。
 
----
+本リポジトリは、業務アプリで重要になりやすい以下の品質リスクを中心に扱う。
 
-## 想定プロダクト
-- 種別：社内向けチケット管理（簡易）
-- 主な機能（例）
-  - チケット作成／一覧／詳細
-  - ステータス遷移（Open / In Progress / Pending / Resolved / Closed）
-  - コメント・履歴
-  - 権限（依頼者／担当者／管理者）
+- 認可（ロール×操作×フィールド）
+- 状態遷移（許可／禁止／運用制約）
+- 入力検証（バリデーション、制約、エラーハンドリング）
+- データ整合性（監査ログ含む）
 
 ---
 
-## テスト範囲
-### 対象（In scope）
-- Web UI の主要フロー（作成→参照→更新）
-- 権限・認可（閲覧/更新の可否）
-- ステータス遷移（許可・禁止遷移）
-- 入力検証（必須、境界値、添付制約など）
-- 一覧・検索・フィルタの基本動作
+## 2. MVP要件
 
-### 非対象（Out of scope）
-- パフォーマンス／負荷
-- 多言語・アクセシビリティの詳細
-- 外部サービス連携や通知など（ある場合）
-- 自動化（将来の拡張ポイントとして扱う）
+MVP要件の正本は [`../requirements/requirements.csv`](../requirements/requirements.csv) とする。
+本章は、テスト観点の理解を助けるための要約である。
+
+### 2.1 ロールと権限
+
+- Requester（依頼者）
+  - 自分のチケットのみ：作成・閲覧・コメント可
+  - 更新（ステータス／担当／期限／添付の変更）は不可
+- Agent（担当者）
+  - 全チケット閲覧可
+  - **担当チケットのみ**：ステータス変更・コメント可
+  - 担当割当／期限変更は不可
+- Admin（管理者）
+  - 全チケット閲覧・更新可
+  - 担当割当、期限設定／変更可
+
+### 2.2 共通ルール
+
+- ログイン必須
+- 主要操作は監査ログ（履歴）として残す
+  - 作成／更新／ステータス変更／担当割当／期限変更／コメント追加 等
+- 添付は作成時のみ
+  - 差し替え／削除不可
+  - 1ファイル
+  - 拡張子・サイズ制限あり（詳細は要件CSVを正とする）
+
+### 2.3 状態遷移
+
+許可：
+- Open → In Progress / Pending
+- In Progress → Resolved / Pending
+- Pending → In Progress
+- Resolved → Closed
+
+禁止：
+- Open → Closed
+- Closed →（いかなる遷移も）禁止
+
+運用固定：
+- ステータス変更は Agent（担当のみ）または Admin のみ
+- 担当未割当のチケットは Agent がステータス変更できない（Adminが割当してから）
 
 ---
 
-## 成果物（入口）
-- テスト計画：`docs/10_test_plan.md`
-- テスト設計：`docs/30_test_design.md`
-- テストケース（設計のみ）：`testcases/testcases.csv`
-- テスト結果記録（実行ログ）：`results/test_results_record.csv`
-- 欠陥ログ（正本）：`defects/defect_log.csv`
+## 3. 成果物の構成
 
-証跡（スクショ/動画/ログ）は `evidence/` 配下に格納します（必要な場合のみ）。
+成果物は GitHub 上のファイルを正本として管理し、Notion には閲覧性向上のためのミラーを掲載する。  
+Notion は随時更新するが、更新タイミングにより差分が出る可能性があり、その場合は **GitHub を正** とする。
+
+
+### 3.1 ドキュメント
+- テスト計画書：[`docs/10_test_plan.md`](docs/10_test_plan.md)
+- テスト条件：[`docs/20_test_conditions.md`](docs/20_test_conditions.md)
+- テスト設計：[`docs/30_test_design.md`](docs/30_test_design.md)
+- テスト環境定義：[`docs/40_test_environment.md`](docs/40_test_environment.md)
+- テスト実行方針：[`docs/50_test_execution_policy.md`](docs/50_test_execution_policy.md)
+- テスト完了レポート：[`docs/60_test_completion_report.md`](docs/60_test_completion_report.md)
+- 要件とテストのトレーサビリティ：[`docs/70_requirements_test_traceability.md`](docs/70_requirements_test_traceability.md)
+
+### 3.2 CSV
+- テストケース：[`testcases/testcases.csv`](testcases/testcases.csv)  
+  ※実行状況は含めず、設計情報に集中しています。
+- テスト結果：[`results/test_results_record.csv`](results/test_results_record.csv)  
+  ※1実行=1行で追記します。
+- 欠陥ログ：[`defects/defect_log.csv`](defects/defect_log.csv)  
+  ※1欠陥=1行で管理します。
+
+### 3.3 証跡
+- スクリーンショット：[`evidence/screenshots/`](evidence/screenshots/)
+- 動画：[`evidence/videos/`](evidence/videos/)
+- ログ：[`evidence/logs/`](evidence/logs/)
 
 ---
 
-## データの見方（おすすめ）
-- テストケースは **設計情報のみ** を `testcases/testcases.csv` にまとめています（実行列は持ちません）
-- 実行の履歴は `results/test_results_record.csv` に **1実行=1行** で追記します
-- 欠陥は `defects/defect_log.csv` に **1欠陥=1行** で管理します  
-  （複雑な欠陥だけ、必要に応じて別途ドキュメントへ拡張可能）
+## 4. リポジトリの見方
+
+1. 本文書（`00_project_overview.md`）で全体像を把握する
+2. `../requirements/requirements.csv` で要件（テストベース）を確認する
+3. `10_test_plan.md` で方針・対象範囲を確認する
+4. `20_test_conditions.md` → `../testcases/testcases.csv` の順に、条件→ケース展開を確認する
+5. `../results/test_results.csv` と `../defects/defect_log.csv` で、実行結果と欠陥管理を確認する
+6. `60_test_completion_report.md` で、結果のまとめ（残存リスク／教訓／次アクション）を確認する
 
 ---
 
-## 注意（公開前提の配慮）
-- 個人情報・実在の顧客情報・機密情報は含めません
-- テストデータ（ユーザID等）は架空の値を使用します（例：req01/agent01/admin01）
-- 添付ファイルや証跡は必要最小限にし、サイズが大きい場合は別手段で共有します
+## 5. データ運用ルール
+
+- テストケースは **設計情報として管理**し実行列は持たない
+  - 置き場所：`../testcases/testcases.csv`
+  - 記録粒度：**1ケース＝1行**
+- テスト結果は **履歴を蓄積**し再実行は新しい行として追記
+  - 置き場所：`../results/test_results.csv`
+  - 記録粒度：**1実行＝1行**
+- 欠陥ログは **欠陥単位で管理**し欠陥IDはテスト結果と紐付ける
+  - 置き場所：`../defects/defect_log.csv`
+  - 記録粒度：**1欠陥＝1行**
+
+---
+
+## 6. 注意
+
+- 個人情報・実在の顧客情報・機密情報は含めない
+- テストデータ（ユーザID等）は架空の値を使用する（例：req01 / agent01 / admin01）
+- 証跡は必要最小限とし、容量が大きい場合は代替手段で共有する
