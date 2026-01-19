@@ -5,7 +5,7 @@
 - ステータス：Draft
 - 最終更新日：2025-12-31
 - 作成者：仁後慎太郎
-- 対象：チケット管理アプリ（Web）
+- 対象：チケット管理アプリ（Web, Django + SQLite）
 - 関連：
   - テストケース：`../testcases/testcases.csv`
   - テスト結果：`../results/test_results_record.csv`

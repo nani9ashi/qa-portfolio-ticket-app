@@ -2,9 +2,10 @@
 
 - 文書ID：TD-TICKET-001
 - 版：v0.1
+- ステータス：Draft
 - 最終更新日：2025-12-31
 - 作成者：仁後慎太郎
-- 対象：チケット管理アプリ
+- 対象：チケット管理アプリ（Web, Django + SQLite）
 - 関連：
   - テスト計画：`10_test_plan.md`
   - テスト条件：`20_test_conditions.md`
