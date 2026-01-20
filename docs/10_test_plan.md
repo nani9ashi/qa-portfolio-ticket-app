@@ -7,11 +7,13 @@
 - 作成者：仁後慎太郎
 - 対象：チケット管理アプリ（Web, Django + SQLite）
 - 関連：
-  - テストケース：`../testcases/testcases.csv`
-  - テスト結果：`../results/test_results_record.csv`
-  - 欠陥ログ：`../defects/defect_log.csv`
+  - 要件：`../requirements/requirements.csv`
+  - 要件とテストのトレーサビリティ：`../docs/70_requirements_test_traceability.md`
   - テスト条件：`../docs/20_test_conditions.md`
   - テスト設計：`../docs/30_test_design.md`
+  - テストケース：`../testcases/testcases.csv`
+  - テスト結果：`../results/test_results.csv`
+  - 欠陥ログ：`../defects/defect_log.csv`
 
 ---
 
@@ -45,13 +47,13 @@
 
 期待結果の根拠として、以下をテストベースとする。
 
-- ユーザーストーリー（要求の代替）
+- 要件：`../requirements/requirements.csv`
+- テスト条件：`../docs/20_test_conditions.md`
+- 要件とテストのトレーサビリティ：`../docs/70_requirements_test_traceability.md`
 - 画面・項目仕様（最小）
 - 状態遷移定義
 - 入力制約（必須、文字数、添付サイズなど）
 - 権限マトリクス（ロール×操作）
-
-※テストベースに不明確な点がある場合は、「前提」として明文化し、テスト条件（test condition）作成時に根拠を残す。
 
 ---
 
@@ -62,6 +64,10 @@
 - 権限に関するセキュリティ観点（認可、直接URLアクセス等の基本確認）
 - 互換性（主要ブラウザ差分の基本確認）
 - 探索的テスト（チャーターに基づく追加確認）
+- Should要件は、運用方針により採否を決定する（一次ソース：トレーサビリティ（70）のBacklog分類）
+  - 採用する場合：テスト条件/テストケースを追加して対象に含める
+  - 採用しない場合：スコープ外として明記し、残存リスクとして扱う
+
 
 ### 4.2 対象外
 - 負荷試験（性能・スケーラビリティの定量評価）
