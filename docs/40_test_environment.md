@@ -7,7 +7,7 @@
 - 作成者：仁後慎太郎
 - 対象：チケット管理アプリ（Web, Django + SQLite）
 - 関連：
-  - テスト計画：`10_test_plan.md`
+  - テスト計画：`../docs/10_test_plan.md`
   - テスト結果：`../results/test_resultscsv`
 
 ---

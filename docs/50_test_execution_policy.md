@@ -7,7 +7,7 @@
 - 作成者：仁後慎太郎
 - 対象：チケット管理アプリ（Web, Django + SQLite）
 - 関連：
-  - テスト計画：`10_test_plan.md`
+  - テスト計画：`../docs/10_test_plan.md`
   - テストケース：`../testcases/testcases.csv`
   - テスト結果：`../results/test_results.csv`
   - 欠陥ログ：`../defects/defect_log.csv`
@@ -141,6 +141,7 @@
 - 要件ID（Requirements）：`REQ-001` から連番（正本：`requirements/requirements.csv`）
 - テスト条件ID（Test Conditions）：`TCND-001` から連番（正本：`docs/20_test_conditions.md`）
 - テストケースID（Test Cases）：`TC-001` から連番（正本：`testcases/testcases.csv`）
+- リスクID(Risk)：`R-XX`から連番（正本：`docs/10_test_plan.md`）
 - テスト結果ID（Test Results）：`TR-0001` から連番（正本：`results/test_results.csv`）
 - 欠陥ID（Defects）：`DEFECT-001` から連番（正本：`defects/defect_log.csv`）
 

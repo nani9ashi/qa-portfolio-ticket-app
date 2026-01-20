@@ -7,11 +7,13 @@
 - 作成者：仁後慎太郎
 - 対象：チケット管理アプリ（Web, Django + SQLite）
 - 関連：
-  - 要件：`../requirements/requirements.csv`（RQ-001）
-  - テスト条件：`20_test_conditions.md`（TCND-001〜）
+  - 要件：`../requirements/requirements.csv`（RQ-001～）
+  - テスト条件：`../docs/20_test_conditions.md`（TCND-001〜）
   - テストケース：`../testcases/testcases.csv`（TC-001〜）
-  - テスト結果：`../results/test_results.csv`
-  - 欠陥ログ：`../defects/defect_log.csv`
+  - テスト計画：`../docs/10_test_plan.md`（R-01〜）
+  - テスト結果：`../results/test_results.csv`（TR-0001～）
+  - 欠陥ログ：`../defects/defect_log.csv`（DEFECT-001～）
+
 
 ---
 
@@ -26,8 +28,10 @@
 - 要件ID：`RQ-XXX`（例：RQ-015）
 - テスト条件ID：`TCND-XXX`（例：TCND-002）
 - テストケースID：`TC-XXX`（例：TC-003）
+- リスクID：`R-XX`（例：R-01）
 - テスト結果ID：`TR-XXXX`（例：TR-0002）
 - 欠陥ID：`DEFECT-XXX`（例：DEFECT-001）
+
 
 ---
 
@@ -36,8 +40,10 @@
 - **要件（RQ）**：何を満たすべきか（期待結果の根拠）
 - **テスト条件（TCND）**：要件を検証可能な単位へ分解した「確認テーマ」
 - **テストケース（TC）**：具体手順と期待値（実行可能な最小単位）
+- **リスク（R）**：品質上の懸念を整理したもの。テストの優先度付け・追加観点の根拠として参照する
 
-本書では、まず RQ→TCND を定義し、次に TCND→TC を紐づけることで、RQ→TC（派生）を導出する。
+本書では、まず RQ→TCND を定義し、次に TCND→TC を紐づけることで、RQ→TCを導出する。
+また本書では、Rのトレーサビリティは管理しない。
 
 ---
 
@@ -95,6 +101,10 @@
 | RQ-040 | Open→Closed は禁止 | Must | TCND-010 | TC-014 | カバー |  |
 | RQ-041 | Closedからの遷移はすべて禁止 | Must | TCND-010 | TC-015 | カバー |  |
 | RQ-042 | 監査ログ（履歴）一覧を閲覧できる | Should | TCND-030;TCND-043 | TC-040 | カバー | 表示/追跡可能性（actor/操作種別/時刻）を確認する。 |
+
+### 補足：関連RQが空のテストケースの扱い
+一部のテストケース（例：同時更新/二重操作/整合性など）は、要件CSV（RQ-001〜RQ-042）に明文化されていない品質リスクに基づくリスクベーステストとして定義している。
+これらは「要件カバレッジ」には算入しないが、残存リスク評価の根拠としてテスト結果および完了レポートで扱う。
 
 ---
 

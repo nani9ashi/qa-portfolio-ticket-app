@@ -7,9 +7,9 @@
 - 作成者：仁後慎太郎
 - 対象：チケット管理アプリ（Web, Django + SQLite）
 - 関連：
-  - テスト計画：`10_test_plan.md`
+  - テスト計画：`../docs/10_test_plan.md`
   - テストケース：`../testcases/testcases.csv`
-  - トレーサビリティ：`70_requirements_test_traceability.md`
+  - 要件とテストのトレーサビリティ：`../docs/70_requirements_test_traceability.md`
 
 ---
 
