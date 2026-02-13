@@ -62,50 +62,50 @@
 
 > 注：本表の「関連TC」は参照情報であり、一次ソースは `../testcases/testcases.csv` とする。
 
-| 要件ID | 要件（概要） | 優先度 | 関連TCND | 関連TC | カバレッジ | 備考 |
-| --- | --- | --- | --- | --- | --- | --- |
-| RQ-001 | ログイン必須 | Must | TCND-029 | TC-031;TC-032;TC-033 | カバー | 未ログイン時の一覧/詳細/作成を対象に確認する。 |
-| RQ-002 | 全操作は監査ログに残る | Must | TCND-043;TCND-025 | TC-040 | 一部 | 主要操作（作成/割当/ステータス変更/コメント）で確認。全操作網羅は未確定。 |
-| RQ-003 | チケットのtitleは必須かつ最大80文字 | Must | TCND-013;TCND-014;TCND-015 | TC-020;TC-021;TC-022;TC-023 | カバー |  |
-| RQ-004 | チケットのbodyは必須かつ最大4000文字 | Must | TCND-013;TCND-014;TCND-016 | TC-020;TC-021 | 一部 | 本文の境界値（最大長ちょうど/超過）のTCが未作成。 |
-| RQ-005 | statusは必須で初期値Open | Must | TCND-013;TCND-006;TCND-007;TCND-008;TCND-009;TCND-010 | TC-009;TC-010;TC-011;TC-012;TC-013;TC-014;TC-015;TC-020 | 一部 | 初期値Openの明示確認／不正ステータス拒否（列挙制約）の明示TCが未整備。 |
-| RQ-006 | due_dateは任意で過去日不可 | Must | TCND-017 | TC-024 | 一部 | 要件ロール（Admin想定）と現行TC前提（Requester作成時）が不一致のため要整理。 |
-| RQ-007 | assigneeは任意でAdminのみ設定/変更できる | Must | TCND-005 | TC-007;TC-008 | カバー |  |
-| RQ-008 | 添付は任意で1ファイルのみ | Must | TCND-018;TCND-031 | TC-025 | 一部 | 複数添付不可（1ファイルのみ）の異常系TCが未作成。 |
-| RQ-009 | 添付は拡張子制限がある | Must | TCND-019 | TC-026 | カバー |  |
-| RQ-010 | 添付はサイズ上限5MB | Must | TCND-018 | TC-025 | カバー |  |
-| RQ-011 | 添付は作成時のみ付与でき、差し替え/削除は不可 | Must | TCND-032 | TC-041 | カバー | UI不存在/拒否を確認（直叩きは任意）。 |
-| RQ-012 | Requesterは自分名義でチケット作成できる | Must | TCND-013 | TC-020 | カバー |  |
-| RQ-013 | Agentはチケットを作成できない | Must | TCND-033 | TC-034 | カバー | UI非表示または直叩き拒否。 |
-| RQ-014 | Adminはチケットを作成できる（更新権限に含む） | Should | TCND-034 | - | 未カバー | Should。運用方針により追加 or 対象外化。 |
-| RQ-015 | Requesterは自分のチケットのみ閲覧できる | Must | TCND-001;TCND-002;TCND-020 | TC-001;TC-002;TC-003;TC-027 | カバー |  |
-| RQ-016 | Agentは全チケットを閲覧できる | Must | TCND-004 | TC-006 | カバー |  |
-| RQ-017 | Adminは全チケットを閲覧できる | Must | TCND-035 | TC-035 | カバー |  |
-| RQ-018 | 検索（q）でtitle/body部分一致ができる | Must | TCND-021 | TC-028 | カバー |  |
-| RQ-019 | 状態フィルタでstatus絞り込みができる | Must | TCND-022 | TC-029 | カバー |  |
-| RQ-020 | 詳細画面に主要項目を表示する | Must | TCND-036 | TC-039 | カバー | 未設定項目の表示（空/未設定表記）は許容。 |
-| RQ-021 | Requesterは自分のチケットにコメント追加できる | Must | TCND-024 | TC-030 | カバー |  |
-| RQ-022 | Requesterは他人のチケットにコメントできない | Must | TCND-037 | TC-036 | カバー | UI/直叩きいずれでも拒否されること。 |
-| RQ-023 | Agentは任意のチケットにコメント追加できる | Must | TCND-024 | TC-030 | カバー |  |
-| RQ-024 | Adminは任意のチケットにコメント追加できる | Must | TCND-038 | - | 未カバー | Adminでのコメント追加（任意チケット）を確認するTCが未作成。 |
-| RQ-025 | コメント追加は監査ログにCOMMENT_ADDEDとして残る | Must | TCND-043;TCND-025 | TC-040 | カバー | 種別（COMMENT_ADDED）の識別までを確認対象とする。 |
+| 要件ID | 要件 | 優先度 | 関連TCND | 関連TC | カバレッジ | 備考 |
+|---|---|---|---|---|---|---|
+| RQ-001 | ログイン必須 | Must | TCND-029 | TC-042;TC-043;TC-044 | カバー | 未ログイン時の一覧/詳細/作成を対象に確認する。 |
+| RQ-002 | 全操作は監査ログに残る | Must | TCND-043 | TC-018 | 一部 | 主要操作（作成/割当/変更/コメント）で確認。全操作網羅は未確定。 |
+| RQ-003 | チケットのtitleは必須かつ最大80文字 | Must | TCND-013;TCND-014;TCND-015 | TC-032;TC-033;TC-034;TC-035 | カバー |  |
+| RQ-004 | チケットのbodyは必須かつ最大4000文字 | Must | TCND-013 | TC-032 | 一部 | 本文の境界値（最大長ちょうど/超過）のTCが未作成。 |
+| RQ-005 | statusは必須で初期値Open | Must | TCND-013 | TC-032 | 一部 | 初期値Openの明示確認／不正ステータス拒否の明示TCが未整備。 |
+| RQ-006 | due_dateは任意で過去日不可 | Must | TCND-017 | TC-036 | カバー |  |
+| RQ-007 | assigneeは任意でAdminのみ設定/変更できる | Must | TCND-005 | TC-009 | カバー |  |
+| RQ-008 | 添付は任意で1ファイルのみ | Must | TCND-018 | TC-038 | 一部 | 複数添付不可（1ファイルのみ）の異常系TCが未作成。 |
+| RQ-009 | 添付は拡張子制限がある | Must | TCND-019 | TC-039 | カバー |  |
+| RQ-010 | 添付はサイズ上限5MB | Must | TCND-018 | TC-038 | カバー |  |
+| RQ-011 | 添付は作成時のみ付与でき、差し替え/削除は不可 | Must | TCND-032 | TC-037 | カバー | UI不存在/拒否を確認。 |
+| RQ-012 | Requesterは自分名義でチケット作成できる | Must | TCND-013 | TC-032 | カバー |  |
+| RQ-013 | Agentはチケットを作成できない | Must | TCND-033 | TC-016;TC-017 | カバー |  |
+| RQ-014 | Adminはチケットを作成できる | Should | - | - | 未カバー | 運用方針により追加 or 対象外化。 |
+| RQ-015 | Requesterは自分のチケットのみ閲覧できる | Must | TCND-001;TCND-002;TCND-020 | TC-001;TC-002;TC-003;TC-012 | カバー |  |
+| RQ-016 | Agentは全チケットを閲覧できる | Must | TCND-004 | TC-011 | カバー |  |
+| RQ-017 | Adminは全チケットを閲覧できる | Must | TCND-035 | TC-013 | カバー |  |
+| RQ-018 | 検索（q）でtitle/body部分一致ができる | Must | TCND-021 | TC-040 | カバー |  |
+| RQ-019 | 状態フィルタでstatus絞り込みができる | Must | TCND-022 | TC-041 | カバー |  |
+| RQ-020 | 詳細画面に主要項目を表示する | Must | TCND-036 | TC-006 | カバー |  |
+| RQ-021 | Requesterは自分のチケットにコメント追加できる | Must | TCND-024 | TC-015 | カバー |  |
+| RQ-022 | Requesterは他人のチケットにコメントできない | Must | TCND-037 | TC-014 | カバー | UI/直叩きいずれでも拒否されること。 |
+| RQ-023 | Agentは任意のチケットにコメント追加できる | Must | TCND-024 | TC-015 | カバー |  |
+| RQ-024 | Adminは任意のチケットにコメント追加できる | Must | - | - | 未カバー | Adminでのコメント追加を確認するTCが未作成。 |
+| RQ-025 | コメント追加は監査ログに記録される | Must | TCND-043 | TC-018 | カバー |  |
 | RQ-026 | Requesterはステータス変更できない | Must | TCND-003 | TC-004;TC-005 | カバー |  |
-| RQ-027 | Requesterは担当者割当できない | Must | TCND-005 | TC-007;TC-008 | 一部 | 「管理者のみ割当」自体は確認。Requester視点（UI/直叩き拒否）の明示TCは未整備。 |
-| RQ-028 | Requesterは期限変更できない | Must | TCND-039 | - | 未カバー | 更新UI/直叩き拒否を確認するTC未作成。 |
-| RQ-029 | Agentは担当チケットのみ更新できる | Must | TCND-040 | TC-037 | 一部 | 非担当の「ステータス変更」拒否は確認。更新定義（コメント等）までの扱いは未整理。 |
-| RQ-030 | Agentは担当者割当できない | Must | TCND-005 | TC-008 | カバー |  |
-| RQ-031 | Agentは期限変更できない（任意固定） | Should | - | - | 未カバー | Should。運用方針により追加 or 対象外化。 |
-| RQ-032 | Adminは全チケットを更新できる | Must | TCND-042 | - | 未カバー | Adminの更新権限（status/assignee/due_date等）を包括確認するTC未作成。 |
-| RQ-033 | Adminは未割当チケットをAgentへ割り当てできる | Must | TCND-005 | TC-007 | カバー |  |
-| RQ-034 | 担当未割当のチケットはAgentがステータス変更できない | Must | TCND-041 | TC-038 | カバー |  |
-| RQ-035 | 許可された遷移のみ可能 | Must | TCND-006;TCND-007;TCND-008;TCND-009;TCND-010 | TC-009;TC-010;TC-011;TC-012;TC-013;TC-014;TC-015 | カバー |  |
-| RQ-036 | Open→In Progress / Pending が可能 | Must | TCND-006 | TC-009;TC-010 | カバー |  |
-| RQ-037 | In Progress→Resolved / Pending が可能 | Must | TCND-007 | TC-011 | カバー |  |
-| RQ-038 | Pending→In Progress が可能 | Must | TCND-008 | TC-012 | カバー |  |
-| RQ-039 | Resolved→Closed が可能 | Must | TCND-009 | TC-013 | カバー |  |
-| RQ-040 | Open→Closed は禁止 | Must | TCND-010 | TC-014 | カバー |  |
-| RQ-041 | Closedからの遷移はすべて禁止 | Must | TCND-010 | TC-015 | カバー |  |
-| RQ-042 | 監査ログ（履歴）一覧を閲覧できる | Should | TCND-030;TCND-025 | TC-040 | カバー | actor/操作種別/時刻の追跡可能性を確認する。 |
+| RQ-027 | Requesterは担当者割当できない | Must | - | - | 未カバー | Requesterによる割当操作拒否の明示TCは未整備。 |
+| RQ-028 | Requesterは期限変更できない | Must | - | - | 未カバー | 更新UI/直叩き拒否を確認するTC未作成。 |
+| RQ-029 | Agentは担当チケットのみ更新できる | Must | TCND-040 | TC-007 | 一部 | 非担当の「ステータス変更」拒否は確認。 |
+| RQ-030 | Agentは担当者割当できない | Must | TCND-005 | TC-010 | カバー |  |
+| RQ-031 | Agentは期限変更できない | Should | - | - | 未カバー |  |
+| RQ-032 | Adminは全チケットを更新できる | Must | - | - | 未カバー |  |
+| RQ-033 | Adminは未割当チケットをAgentへ割当できる | Must | TCND-005 | TC-009 | カバー |  |
+| RQ-034 | 担当未割当チケットはAgentが操作できない | Must | TCND-041 | TC-008 | カバー |  |
+| RQ-035 | 許可された遷移のみ可能 | Must | TCND-006〜010 | TC-019〜TC-031 | カバー | 全遷移パターンの網羅。 |
+| RQ-036 | Open→In Progress / Pending が可能 | Must | TCND-006 | TC-021;TC-030 | カバー |  |
+| RQ-037 | In Progress→Resolved / Pending が可能 | Must | TCND-007 | TC-022;TC-025 | カバー |  |
+| RQ-038 | Pending→In Progress が可能 | Must | TCND-008 | TC-023 | カバー |  |
+| RQ-039 | Resolved→Closed が可能 | Must | TCND-009 | TC-027 | カバー |  |
+| RQ-040 | Open→Closed は禁止 | Must | TCND-010 | TC-020 | カバー |  |
+| RQ-041 | Closedからの遷移はすべて禁止 | Must | TCND-010 | TC-028 | カバー |  |
+| RQ-042 | 監査ログ一覧を閲覧できる | Should | TCND-030 | TC-018 | カバー |  |
 
 ---
 
