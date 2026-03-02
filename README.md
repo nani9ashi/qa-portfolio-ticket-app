@@ -1,8 +1,5 @@
-# QAポートフォリオ：チケット管理アプリ
+⚠️ 【Notice】This repository has been migrated.
 
-BtoB想定のチケット管理アプリを題材に作成した、QA成果物のポートフォリオです。  
-主に「権限」「状態遷移」「入力検証」「監査ログ」などの品質リスクに対する設計・記録を提示します。  
-詳細はプロジェクト概要に集約しています。
+本プロジェクトは、以下のリポジトリに移行しました。
 
-## まずはこちら
-- ▶ プロジェクト概要：[`docs/00_project_overview.md`](docs/00_project_overview.md)
+👉 新リポジトリ：[ticket-management-system](https://github.com/nani9ashi/ticket-management-system)
